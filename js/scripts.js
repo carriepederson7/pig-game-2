@@ -25,12 +25,6 @@ function Player(){
   // this.anotherArray = []
 }
 
-// function Player2(){
-//   this.currentRoll2 = 0;
-//   this.currentScore2= 0;
-//   this.totalScore= [],
-//   this.anotherArray = []
-// }
 
 Player.prototype.newRoll = function(){
   this.currentRoll= Math.floor(Math.random()*6 +1);
@@ -39,21 +33,10 @@ Player.prototype.newRoll = function(){
   player1Turn = !player1Turn
 }else  {this.currentScore = this.currentRoll + this.currentScore;
   }
+  if(this.currentScore >= 100)
+  alert("WINNER!")
 }
 
-// Player2.prototype.newRoll2 = function(){
-//   this.currentRoll2= Math.floor(Math.random()*6 +1);
-//   if(this.currentRoll2 === 1){
-//   this.currentScore2 = 0 + this.currentScore2;
-//   player1Turn = !player1Turn
-// }else  {this.currentScore2 = this.currentRoll2 + this.currentScore2;
-//   }
-// }
-
-
-// Player.prototype.totalScore = function(){
-//
-// }
 
 var player1 = new Player()
 var player2 = new Player()
@@ -81,6 +64,7 @@ $(document).ready(function(){
     if(player2.newRoll() === 1){
       player1Turn
     }
+
 
     console.log(player1)
 
