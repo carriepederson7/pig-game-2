@@ -33,19 +33,19 @@ All.prototype.addTurn = function(turn){
 
 
 function Player(){
-  this.currentRoll = 0,
-  this.currentScore= 0,
-  this.totalScore= [],
-  this.anotherArray = []
+  this.currentRoll = 0;
+  this.currentScore= 0;
+  // this.totalScore= [],
+  // this.anotherArray = []
 }
 
 
 
 Player.prototype.newRoll = function(){
-  var num = Math.floor(Math.random()*6 +1);
-  this.currentRoll += num
+  this.currentRoll= Math.floor(Math.random()*6 +1);
+
   // return this.currentRoll
-  this.currentScore = this.currentRoll += this.currentScore;
+  this.currentScore = this.currentRoll + this.currentScore;
 }
 
 
@@ -53,12 +53,12 @@ Player.prototype.totalScore = function(){
 
 }
 
-var newTurn = new Turn()
-newTurn.newRoll()
+var newPlayer = new Player()
+newPlayer.newRoll()
 // newTurn.totalScore()
-console.log(newTurn.currentRoll)
-console.log(newTurn.totalScore)
-console.log(newTurn.currentScore)
+console.log(newPlayer.currentRoll)
+// console.log(newPlayer.totalScore)
+console.log(newPlayer.currentScore)
 
 
 
