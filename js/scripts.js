@@ -68,14 +68,17 @@ Player.prototype.endTurn = function(){
   }
 }
 
-Player.prototype.changePlayer = function(){
+Player.prototype.hold1 = function(){
   if(  turn = false){
     turn = true
   }
 }
 
-
-
+Player.prototype.hold2 = function(){
+  if(  turn = true){
+    turn = false
+  }
+}
 
  Player.prototype.winner = function(){
    if(this.currentScore >= 100){
@@ -112,22 +115,11 @@ $(document).ready(function(){
     $(".roll2").text(player2.currentRoll);
     $(".total2").text(player2.currentScore);
     }
-
-
-    console.log(player1)
-    console.log(player2)
-
-
-    // var roll =  function roll(){
-    //   return Math.floor(Math.random()*6 +1)
-    // }
-
-
-
-
-
-
-
-
-});
+  });
+  $("#hold1").click(function(){
+    turn = false;
+    });
+  $("#hold2").click(function(){
+    turn = true;
+    });
 });
