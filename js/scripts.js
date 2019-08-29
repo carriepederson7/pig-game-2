@@ -2,12 +2,23 @@
 
 
 
-
+// var game = new Game ()
+//
+// function Game(){
+//   this.player1 = []
+//   this.player2 = []
+// }
+//
+// Game.prototype.player1Turn = function (){
+// }
+//
+// console.log(game.player1)
+//
 //
 //
 // var all = new All()
 //
-// function All(){
+// function Game(){
 //   this.eachRoll = []
 // }
 //
@@ -16,7 +27,7 @@
 // }
 //
 // console.log(all);
-//
+// //
 
 
 
@@ -38,6 +49,14 @@ Player.prototype.ones = function(){
   turn = false
 }
 }
+
+Player.prototype.ones2 = function(){
+  if(this.currentRoll === 1){
+  this.currentScore = 0 + this.currentScore;
+  turn = true
+}
+}
+
 
 Player.prototype.addScore = function(){
   this.currentScore = this.currentRoll + this.currentScore;
@@ -81,25 +100,18 @@ $(document).ready(function(){
     player1.newRoll();
     player1.ones();
     player1.addScore();
-    // player1.endTurn();
     player1.winner();
     $(".roll1").text(player1.currentRoll);
     $(".total1").text(player1.currentScore);
   }
   else {
     player2.newRoll();
-    player2.ones();
+    player2.ones2();
     player2.addScore();
-    // player2.changePlayer();
-    turn
     player2.winner();
-
     $(".roll2").text(player2.currentRoll);
     $(".total2").text(player2.currentScore);
     }
-    // if(player2.newRoll() === 1){
-    //   turn= true
-    // }
 
 
     console.log(player1)
