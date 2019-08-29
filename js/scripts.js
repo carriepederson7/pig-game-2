@@ -14,7 +14,9 @@
 // All.prototype.addTurn = function(turn){
 //   this.eachRoll.push(turn);
 // }
-
+//
+// console.log(all);
+//
 
 
 
@@ -28,19 +30,45 @@ function Player(){
 
 Player.prototype.newRoll = function(){
   this.currentRoll= Math.floor(Math.random()*6 +1);
+}
+
+Player.prototype.ones = function(){
   if(this.currentRoll === 1){
   this.currentScore = 0 + this.currentScore;
-  player1Turn = !player1Turn
-}else  {this.currentScore = this.currentRoll + this.currentScore;
-  }
-  if(this.currentScore >= 100)
-  alert("WINNER!")
+  turn = false
 }
+}
+
+Player.prototype.addScore = function(){
+  this.currentScore = this.currentRoll + this.currentScore;
+  }
+
+Player.prototype.endTurn = function(){
+  if(this.currentRoll === 1){
+    turn = false
+  }
+}
+
+Player.prototype.changePlayer = function(){
+  if(  turn = false){
+    turn = true
+  }
+}
+
+
+
+
+ Player.prototype.winner = function(){
+   if(this.currentScore >= 100){
+   alert("WINNER!")
+ }
+}
+
 
 
 var player1 = new Player()
 var player2 = new Player()
-var player1Turn = true
+var turn = true
 
 
 
@@ -49,24 +77,34 @@ var player1Turn = true
 $(document).ready(function(){
   $("#click").click(function(event){
     event.preventDefault();
-    if(player1Turn){
+    if(turn){
     player1.newRoll();
+    player1.ones();
+    player1.addScore();
+    // player1.endTurn();
+    player1.winner();
     $(".roll1").text(player1.currentRoll);
     $(".total1").text(player1.currentScore);
   }
-
   else {
-
     player2.newRoll();
+    player2.ones();
+    player2.addScore();
+    // player2.changePlayer();
+    turn
+    player2.winner();
+
     $(".roll2").text(player2.currentRoll);
     $(".total2").text(player2.currentScore);
     }
-    if(player2.newRoll() === 1){
-      player1Turn
-    }
+    // if(player2.newRoll() === 1){
+    //   turn= true
+    // }
 
 
     console.log(player1)
+    console.log(player2)
+
 
     // var roll =  function roll(){
     //   return Math.floor(Math.random()*6 +1)
